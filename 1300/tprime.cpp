@@ -3,6 +3,15 @@
 
 using namespace std;
 
+int prime(long long n) {
+    for (long long i = 2; i * i <= n; i++) {
+        if (n % i == 0) {
+            return 0;
+        }
+    }
+    return 1;
+}
+
 int main() {
     int t;
     cin >> t;
@@ -18,19 +27,12 @@ int main() {
             continue;
         }
 
-        int valid = 1;
-
-        for (long long i = 2; i < root; i++) {
-            if (number % i == 0) {
-                valid = 0;
-                break;
-            }
-        }
-
-        if (valid) {
+        if (prime(root)) {
             cout << "YES\n";
         } else {
             cout << "NO\n";
         }
+
+       
     }
 }
