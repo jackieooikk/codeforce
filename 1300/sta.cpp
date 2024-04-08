@@ -13,23 +13,19 @@ int main() {
     }
 
     int state = 0;
-    int valid = 1;
     int left, right;
 
     for (int i = 1; i < n; i++) {
         
-        if (line[i] < line[i-1]) {
-            if (state == 0) {
-                left = i - 1;
-                state++;
-            }
-        } else if (state == 1) {
+        if (line[i] < line[i-1] && state % 2 == 0) {
+            left = i - 1;
+            state++;
+        } else if (line[i] > line[i-1] && state % 2 == 1) {
             right = i - 1;
             state++;
         }
 
     }
-
     
     if (state == 0) {
         cout << "yes\n" << "1 1\n";
