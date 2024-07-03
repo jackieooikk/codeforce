@@ -17,7 +17,11 @@ int main() {
     maxM = m;
 
     if (9 * m < s || s == 0) {
-        cout << "-1 -1" << endl;
+        if (m == 1 && s == 0) {
+            cout << "0 0" << endl;
+        } else {
+            cout << "-1 -1" << endl;
+        }
         return 0;
     }
     
